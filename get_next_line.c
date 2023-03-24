@@ -2,6 +2,8 @@
 
 char* get_next_line(int fd)
 {
+    if (!fd || fd < 0)
+        return (NULL);
     char* buf = (char*)malloc(100);
     char* tmp = buf;
     int bytes_read;
@@ -18,9 +20,10 @@ char* get_next_line(int fd)
     buf = tmp;
     return buf;
 }
-
+/*
 int main()
 {
     int fd = open("Test123.txt", O_RDONLY);
     puts(get_next_line(fd));
 }
+*/
