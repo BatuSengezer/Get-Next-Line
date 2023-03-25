@@ -8,6 +8,7 @@ char *ft_last_line(int fd,char *last_line)
 char *ft_next_line(char *last_line)
 {
 
+
 }
 
 //strdup to last line and dont forget to free
