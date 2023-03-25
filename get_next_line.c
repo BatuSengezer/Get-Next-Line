@@ -1,29 +1,31 @@
 #include "get_next_line.h"
 
-char* get_next_line(int fd)
+char *ft_last_line(int fd,char *last_line)
 {
-    if (!fd || fd < 0)
-        return (NULL);
-    char* buf = (char*)malloc(100);
-    char* tmp = buf;
-    int bytes_read;
 
-    while ((bytes_read = read(fd, buf, 1)) > 0)
-    {
-        if (*buf == '\n' || *buf == EOF)
-        {
-            break;
-        }
-        buf++;
-    }
-    *buf = '\0';
-    buf = tmp;
-    return buf;
 }
-/*
-int main()
+
+char *ft_next_line(char *last_line)
 {
-    int fd = open("Test123.txt", O_RDONLY);
-    puts(get_next_line(fd));
+
 }
-*/
+
+//strdup to last line and dont forget to free
+char *ft_next_last_line(char *last_line)
+{
+
+}
+
+char *get_next_line(int fd)
+{
+    char *next_line;
+    static char *last_line;
+    if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) != 0)
+        return(NULL);
+    last_line = ft_last_line(fd, last_line);
+    if (!last_line)
+        return (NULL);
+    next_line = ft_next_line(last_line);
+    last_line = ft_next_last_line(last_line);
+    return (next_line);
+}
