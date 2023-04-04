@@ -6,7 +6,7 @@
 /*   By: bsengeze <bsengeze@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:36:33 by bsengeze          #+#    #+#             */
-/*   Updated: 2023/04/05 01:48:10 by bsengeze         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:55:59 by bsengeze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ char	*get_next_line(int fd)
     rem_txt = ft_update_remaining(rem_txt);
 	return (curr_line);
 }
+//edit mains with 42 folder before deleting it 
 // int main(void)
 // {
 //     int fd;
