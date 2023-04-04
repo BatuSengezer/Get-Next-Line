@@ -6,7 +6,7 @@
 /*   By: bsengeze <bsengeze@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:36:33 by bsengeze          #+#    #+#             */
-/*   Updated: 2023/04/05 01:23:36 by bsengeze         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:48:10 by bsengeze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_get_line(char *rem_txt)
 		curr_line[i] = '\n';
 		curr_line[i + 1] = '\0';
 	}
-	if (rem_txt[i] != '\n')
+	else
 		curr_line[i] = '\0';
 	return (curr_line);
 }
