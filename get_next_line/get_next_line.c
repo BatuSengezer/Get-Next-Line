@@ -6,7 +6,7 @@
 /*   By: bsengeze <bsengeze@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:36:33 by bsengeze          #+#    #+#             */
-/*   Updated: 2023/04/05 00:01:31 by bsengeze         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:11:13 by bsengeze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_get_line(char *rem_txt)
 		return (NULL);
 	while (rem_txt[i] && rem_txt[i] != '\n')
 		i++;
-	curr_line = (char *)malloc(i + 1);
+	curr_line = (char *)malloc(i + 2);
     if(!curr_line)
         return (NULL);
     i = 0;
@@ -67,6 +67,7 @@ char	*ft_update_remaining(char *rem_txt)
 	updated_remaining[j] = '\0';
 	free(rem_txt);
 	return (updated_remaining);
+
 }
 
 char	*ft_read_file(int fd, char *rem_txt)
@@ -101,13 +102,12 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	rem_txt = ft_read_file(fd, rem_txt);
-	if (!rem_txt || !*rem_txt)
+	if (!rem_txt)
 		return (NULL);
 	curr_line = ft_get_line(rem_txt);
     rem_txt = ft_update_remaining(rem_txt);
-	return (curr_line);
+	return (curr_line);	
 }
-
 // int main(void)
 // {
 //     int fd;
