@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsengeze <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bsengeze <bsengeze@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:37:39 by bsengeze          #+#    #+#             */
-/*   Updated: 2023/03/27 16:37:42 by bsengeze         ###   ########.fr       */
+/*   Updated: 2023/04/04 03:36:06 by bsengeze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 #endif
 
 char *get_next_line(int fd);
-char *ft_update_remaining(char *remaining_text, char *current_line);
+char	*ft_update_remaining(char *rem_txt);
 size_t	ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(char *rem_txt, char *buffer);
 
 #endif
