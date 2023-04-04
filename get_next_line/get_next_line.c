@@ -6,7 +6,7 @@
 /*   By: bsengeze <bsengeze@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:36:33 by bsengeze          #+#    #+#             */
-/*   Updated: 2023/04/04 04:28:29 by bsengeze         ###   ########.fr       */
+/*   Updated: 2023/04/05 00:01:31 by bsengeze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_get_line(char *rem_txt)
 	int		i;
 	
 	i = 0;
-	if (!rem_txt)
+	if (!*rem_txt)
 		return (NULL);
 	while (rem_txt[i] && rem_txt[i] != '\n')
 		i++;
@@ -36,7 +36,7 @@ char	*ft_get_line(char *rem_txt)
 		curr_line[i] = '\n';
 		curr_line[i + 1] = '\0';
 	}
-	else
+	if (rem_txt[i] != '\n')
 		curr_line[i] = '\0';
 	return (curr_line);
 }
@@ -58,19 +58,12 @@ char	*ft_update_remaining(char *rem_txt)
 		free(rem_txt);
 		return (NULL);
 	}
-	updated_remaining = (char *)malloc(ft_strlen(rem_txt) - i);
+	updated_remaining = (char *)malloc(ft_strlen(rem_txt) - i + 1);
 	if (!updated_remaining)
-    {
-		free(rem_txt);
 		return (NULL);
-    }
     i++;
 	while (rem_txt[i])
-	{
-		updated_remaining[j] = rem_txt[i];
-		i++;
-        j++;
-	}
+		updated_remaining[j++] = rem_txt[i++];
 	updated_remaining[j] = '\0';
 	free(rem_txt);
 	return (updated_remaining);
@@ -95,11 +88,6 @@ char	*ft_read_file(int fd, char *rem_txt)
 		}
 		buffer[read_bytes] = '\0';
 		rem_txt = ft_strjoin(rem_txt, buffer);
-		if (!rem_txt)
-		{
-			free(buffer);
-			return (NULL);
-		}
 	}
 	free(buffer);
 	return (rem_txt);
@@ -116,21 +104,24 @@ char	*get_next_line(int fd)
 	if (!rem_txt || !*rem_txt)
 		return (NULL);
 	curr_line = ft_get_line(rem_txt);
-    if (!curr_line)
-	{
-		free(rem_txt);
-		return (NULL);
-	}
     rem_txt = ft_update_remaining(rem_txt);
 	return (curr_line);
 }
-/*
-int main(void)
-{
-    int fd;
 
-    fd = open("test.txt", O_RDONLY);
-    get_next_line(fd);
-    //close(fd);
-}
-*/
+// int main(void)
+// {
+//     int fd;
+
+//     fd = open("test.txt", O_RDONLY);
+//     get_next_line(fd);
+//     //close(fd);
+// }
+
+// int main(void)
+// {
+//     int fd;
+
+//     fd = open("empty.txt", O_RDONLY);
+//     get_next_line(fd);
+//     //close(fd);
+// }

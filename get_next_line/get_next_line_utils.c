@@ -6,7 +6,7 @@
 /*   By: bsengeze <bsengeze@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 18:57:57 by bsengeze          #+#    #+#             */
-/*   Updated: 2023/04/04 03:27:24 by bsengeze         ###   ########.fr       */
+/*   Updated: 2023/04/04 23:32:42 by bsengeze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,23 @@ char	*ft_strchr(char *s, int c)
 		return ((char *)s);
 	return (0);
 }
-
+//problem in if!rem malloc
 char	*ft_strjoin(char *rem_txt, char *buffer)
 {
+	
 	size_t	i;
 	size_t	j;
 	char	*mal;
 
 	i = 0;
 	j = 0;
+	// if (!rem_txt)
+	// {
+	// 	rem_txt = (char *)malloc(1);
+	// 	rem_txt[0] = '\0';
+	// }
+	// if (!rem_txt || !buffer)
+		// return (NULL);
 	mal = malloc(sizeof(char) * (ft_strlen(rem_txt) + ft_strlen(buffer)) + 1);
 	if (!mal)
 		return (0);

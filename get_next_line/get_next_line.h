@@ -6,7 +6,7 @@
 /*   By: bsengeze <bsengeze@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:37:39 by bsengeze          #+#    #+#             */
-/*   Updated: 2023/04/04 03:36:06 by bsengeze         ###   ########.fr       */
+/*   Updated: 2023/04/04 21:00:44 by bsengeze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1000
+# define BUFFER_SIZE 1
 #endif
 
 char *get_next_line(int fd);
